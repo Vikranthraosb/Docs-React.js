@@ -2,12 +2,12 @@ import React from 'react'
 import { FaFileCode } from "react-icons/fa";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
+import { motion } from "framer-motion"
 
 
-function Card({data}) {
+function Card({data,reference}) {
   return (
-    <div>
-       <div className=' relative w-60 h-72 bg-zinc-900/90 rounded-[40px] text-white overflow-hidden'>
+       <motion.div drag dragConstraints={reference}  whileDrag={{scale:1.1}} dragElastic={.5} className=' relative w-60 h-72 bg-zinc-900/90 rounded-[40px] text-white overflow-hidden'>
         <div className='flex flex-col items-start justify-center gap-5 p-[20px] py-[30px] pt-[50px]'>
       <div><FaFileCode size="1.5rem"/>
          </div>
@@ -29,8 +29,8 @@ function Card({data}) {
     </div>) : null
     }
 
-       </div>
-    </div>
+       </motion.div>
+    
   )
 }
 
